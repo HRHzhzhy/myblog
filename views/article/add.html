@@ -1,0 +1,35 @@
+<%- include ../include/header.html%>
+<p>Welcome to <%= title %></p>
+<form class="form-horizontal" method="post" action = '/articles/post' enctype = "multipart/form-data">
+    <input type = "text" name = "_id" value = "<%=article._id%>"/>
+    <div class="form-group">
+        <label for="title" class="col-sm-2 control-label">title</label>
+        <div class="col-sm-10">
+
+            <input value="<%=article.title%>" type="text" class="form-control" id="title" name = 'title' placeholder="title">
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="content" class="col-sm-2 control-label">content</label>
+        <div class="col-sm-10">
+
+            <input value="<%=article.content%>" type="text" class="form-control" id="content" name = 'content' placeholder="content">
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="image" class="col-sm-2 control-label">pic</label>
+        <div class="col-sm-10">
+            <img class="img img-responsive" src="<%=article.poster%>" alt=""/>
+            <input type="file" class="form-control" id="image" name = 'poster' >
+        </div>
+
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Sign in</button>
+        </div>
+    </div>
+</form>
+<%- include ../include/footer.html%>

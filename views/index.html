@@ -1,0 +1,51 @@
+<%- include ./include/header.html%>
+<p>Welcome to <%= title %></p>
+<%
+articles.forEach(function(article){
+%>
+<div class="media">
+    <div class="media-left">
+        <a href="#">
+            <img class="media-object" src="<%=article.user.avatar%>" alt="头像">
+        </a>
+    </div>
+    <div class="media-body">
+        <a href="/articles/detail/?id=<%=article._id%>"><h4 class="media-heading"><%=article.title%></h4></a>
+        <p><%-article.content%></p>
+        <div class="media-body">
+            <p>作者:<%-article.user.username%></p><p> 发布时间:<%-article.createAt.toLocaleString()%></p>
+        </div>
+    </div>
+
+</div>
+<%})%>
+<nav>
+    <ul class="pagination">
+        <li>
+            <%
+            if(pageNum > 1){
+            %>
+            <a href="/?pageNum=<%=pageNum-1%>&&keyword=<%=keyword%>" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+            <%}%>
+        </li>
+        <%
+            for(var i=1;i <= totalPage; i++){
+        %>
+        <li class="<%= i == pageNum? 'active':''%>"><a href="/?pageNum=<%=i%>&&keyword=<%=keyword%>" ><%=i%></a></li>
+        <%
+            }
+        %>
+        <li>
+            <%
+                if(pageNum < totalPage){
+            %>
+            <a href="/?pageNum=<%=pageNum+1%>&&keyword=<%=keyword%>"  aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+            <%}%>
+        </li>
+    </ul>
+</nav>
+<%- include ./include/footer.html%>
