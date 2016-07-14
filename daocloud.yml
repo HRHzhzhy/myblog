@@ -1,0 +1,14 @@
+image: daocloud/ci-node:6.2.2
+
+services:
+    - mongodb
+
+env:
+    - MONGODB_INSTANCE_NAME = "test"
+
+install:
+    - npm install -g mocha
+
+script:
+    - npm install
+    - mocha
