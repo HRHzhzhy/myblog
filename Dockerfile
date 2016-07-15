@@ -1,3 +1,3 @@
 FROM node:6.2.2-onbuild
 
-EXPOSE 80
+EXPOSE 3000

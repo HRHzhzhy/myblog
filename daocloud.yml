@@ -4,7 +4,7 @@ services:
     - mongodb
 
 env:
-    - MONGODB_INSTANCE_NAME = "test"
+    - MONGODB_INSTANCE_NAME = "dev"
 
 install:
     - npm install -g mocha
